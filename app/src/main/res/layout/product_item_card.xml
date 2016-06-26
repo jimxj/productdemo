@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/mid_padding"
+    android:paddingRight="@dimen/mid_padding"
+    card_view:cardCornerRadius="4dp"
+    android:foreground="?attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    >
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      >
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/ivProduct"
+        />
+
+    <LinearLayout
+        android:id="@+id/llInfo"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/ivProduct"
+        android:layout_toLeftOf="@+id/llPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/larg_margin"
+        android:layout_centerVertical="true"
+        >
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceListItem"
+            />
+        <com.jim.productdemo.view.ReviewView
+            android:id="@+id/reviewProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></com.jim.productdemo.view.ReviewView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPrice"
+        android:orientation="vertical"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical|right"
+        android:layout_centerVertical="true"
+        >
+      <TextView
+          android:id="@+id/tvPrice"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+          android:textColor="@color/highlightText"
+          />
+      <TextView
+          android:id="@+id/tvInstock"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          />
+    </LinearLayout>
+
+  </RelativeLayout>
+</android.support.v7.widget.CardView>

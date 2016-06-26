@@ -1,0 +1,121 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/larg_margin"
+    android:layout_marginRight="@dimen/larg_margin"
+    android:layout_marginTop="@dimen/larg_margin"
+    android:orientation="vertical"
+    >
+
+  <TextView
+      android:id="@+id/tvProductName"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      android:text="@string/price"
+      />
+
+  <com.jim.productdemo.view.ReviewView
+      android:id="@+id/reviewProduct"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/ivProduct"
+      />
+
+  <include layout="@layout/line_divider" />
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      >
+
+    <TextView
+        android:id="@+id/tvPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/larg_margin"
+        android:layout_toRightOf="@+id/tvPriceLabel"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/highlightText"
+        android:text="@string/price"
+        />
+    <TextView
+        android:id="@+id/tvStock"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+  </RelativeLayout>
+
+  <include layout="@layout/line_divider" />
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mid_margin"
+        android:text="@string/about_item"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        />
+
+    <org.sufficientlysecure.htmltextview.HtmlTextView
+        android:id="@+id/tvShortDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:textColor="@color/descriptionText"
+        />
+  </LinearLayout>
+
+  <include layout="@layout/line_divider" />
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+
+    <TextView
+        android:id="@+id/tvMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mid_margin"
+        android:text="@string/more_info"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        />
+
+    <org.sufficientlysecure.htmltextview.HtmlTextView
+        android:id="@+id/tvDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:textColor="@color/descriptionText"
+        />
+  </LinearLayout>
+
+
+
+</LinearLayout>

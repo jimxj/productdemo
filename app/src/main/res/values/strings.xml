@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">ProductDemo</string>
+  <string name="title_product_detail">Product Detail</string>
+  <string name="price">Price</string>
+  <string name="about_item">About This Item</string>
+  <string name="more_info">More Information</string>
+</resources>
