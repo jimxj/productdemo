@@ -11,5 +11,10 @@ A app to demo a product master-details view
 * Share to other app
 * Swip to previous/next
 
-### Other
+### Other Features
 * Works offline
+* 
+
+### ToDo
+* UI to indicate offline
+* 
