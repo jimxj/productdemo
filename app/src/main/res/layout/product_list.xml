@@ -15,7 +15,6 @@
       android:name="com.jim.productdemo.ProductListFragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      app:layoutManager="LinearLayoutManager"
-      tools:listitem="@layout/product_item_simple"
+      tools:listitem="@layout/product_item_card"
       />
 </android.support.v4.widget.SwipeRefreshLayout>

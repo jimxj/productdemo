@@ -5,15 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.jim.productdemo.R;
-import com.jim.productdemo.product.list.ProductListActivity;
 
 /**
  * An activity to show the details of a product detail screen.
@@ -58,8 +57,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     // http://developer.android.com/guide/components/fragments.html
     //
     if (savedInstanceState == null) {
-      // Create the detail fragment and add it to the activity
-      // using a fragment transaction.
       Bundle arguments = new Bundle();
       arguments.putString(ProductDetailFragment.ARG_ITEM_ID, getIntent().getStringExtra(ProductDetailFragment.ARG_ITEM_ID));
       ProductDetailFragment fragment = new ProductDetailFragment();

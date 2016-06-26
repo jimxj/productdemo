@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import butterknife.BindView;
 import com.jim.productdemo.R;
 import java.util.Arrays;
 import java.util.List;

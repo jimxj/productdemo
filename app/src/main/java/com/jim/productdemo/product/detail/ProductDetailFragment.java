@@ -1,14 +1,10 @@
 package com.jim.productdemo.product.detail;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.ShareActionProvider;
 import android.text.Html;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -30,7 +26,6 @@ import com.jim.productdemo.api.ApiError;
 import com.jim.productdemo.data.Product;
 import com.jim.productdemo.data.ProductRepository;
 import com.jim.productdemo.product.list.ProductListActivity;
-import com.jim.productdemo.utils.TextUtil;
 import com.jim.productdemo.view.ReviewView;
 import com.squareup.picasso.Picasso;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
@@ -142,9 +137,6 @@ public class ProductDetailFragment extends Fragment implements GestureDetector.O
   }
 
   private void setupGestureDetector() {
-    // Instantiate the gesture detector with the
-    // application context and an implementation of
-    // GestureDetector.OnGestureListener
     mDetector = new GestureDetectorCompat(getContext(),this);
     mContentLayout.setOnTouchListener(new View.OnTouchListener() {
       @Override
@@ -164,7 +156,10 @@ public class ProductDetailFragment extends Fragment implements GestureDetector.O
   private void setData() {
     mNameText.setText(mProduct.getProductName());
     mProductReview.setReview(mProduct.getReviewRatingRounded(), mProduct.getReviewCount());
-    Picasso.with(getContext()).load(mProduct.getProductImage()).placeholder(R.drawable.ic_placeholder).into(mProductImage);
+    Picasso.with(getContext())
+        .load(mProduct.getProductImage())
+        .placeholder(R.drawable.ic_placeholder)
+        .into(mProductImage);
     mPriceText.setText(mProduct.getPrice());
     mInStockText.setText(mProduct.isInStock() ? "In Stock" : "Out of Stock");
     //mShortDescText.setText(Html.fromHtml(mProduct.getShortDescription()));

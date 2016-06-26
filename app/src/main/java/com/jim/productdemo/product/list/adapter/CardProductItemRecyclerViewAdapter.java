@@ -1,7 +1,7 @@
 package com.jim.productdemo.product.list.adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +13,9 @@ import butterknife.ButterKnife;
 import com.jim.productdemo.R;
 import com.jim.productdemo.data.Product;
 import com.jim.productdemo.product.detail.ProductDetailActivity;
-import com.jim.productdemo.product.detail.ProductDetailFragment;
+import com.jim.productdemo.utils.DisplayUtil;
 import com.jim.productdemo.view.ReviewView;
 import com.squareup.picasso.Picasso;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Adapter to show product info in a cardview
@@ -26,8 +24,13 @@ import java.util.List;
 public class CardProductItemRecyclerViewAdapter extends
     ProductItemRecyclerViewAdapter<CardProductItemRecyclerViewAdapter.ProductViewHolder> {
 
-  public CardProductItemRecyclerViewAdapter(Context context) {
+  private static final int IMAGE_SIZE = 120;
+
+  private static int dpi = 0;
+
+  public CardProductItemRecyclerViewAdapter(Activity context) {
     super(context);
+    dpi = DisplayUtil.getDensity(context);
   }
 
   @Override public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,7 +43,9 @@ public class CardProductItemRecyclerViewAdapter extends
     Product item = mValues.get(position);
     holder.mItem = item;
     holder.mProductNameView.setText(item.getProductName());
-    Picasso.with(mContext).load(item.getProductImage()).placeholder(R.drawable.ic_placeholder).into(holder.mProductImageView);
+    Picasso.with(mContext).load(item.getProductImage())
+        .placeholder(R.drawable.ic_placeholder)
+        .into(holder.mProductImageView);
     holder.mPriceView.setText(item.getPrice());
     holder.reviewProduct.setReview(item.getReviewRatingRounded(), item.getReviewCount());
     holder.mInstockView.setText(item.isInStock() ? "In Stock" : "Out of Stock");

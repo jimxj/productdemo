@@ -1,17 +1,8 @@
 package com.jim.productdemo.product.list.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.jim.productdemo.R;
 import com.jim.productdemo.data.Product;
-import com.jim.productdemo.product.detail.ProductDetailActivity;
-import com.jim.productdemo.product.detail.ProductDetailFragment;
-import com.jim.productdemo.product.list.ProductListActivity;
 import java.util.ArrayList;
 import java.util.List;
 

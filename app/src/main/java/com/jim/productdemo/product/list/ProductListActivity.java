@@ -7,19 +7,17 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
 import android.util.Log;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.jim.productdemo.Constants;
+import com.jim.productdemo.R;
 import com.jim.productdemo.api.ApiCallback;
 import com.jim.productdemo.api.ApiError;
 import com.jim.productdemo.data.Product;
 import com.jim.productdemo.data.ProductDataSource;
 import com.jim.productdemo.data.ProductRepository;
 import com.jim.productdemo.product.detail.ProductDetailActivity;
-import com.jim.productdemo.R;
-
 import com.jim.productdemo.product.list.adapter.CardProductItemRecyclerViewAdapter;
 import com.jim.productdemo.product.list.adapter.ProductItemRecyclerViewAdapter;
 import com.jim.productdemo.utils.DisplayUtil;

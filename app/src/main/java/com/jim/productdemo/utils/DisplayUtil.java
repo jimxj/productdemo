@@ -22,4 +22,10 @@ public class DisplayUtil {
     Log.d(TAG, "screenInches " + screenInches);
     return screenInches > 6;
   }
+
+  public static int getDensity(Activity activity) {
+    DisplayMetrics dm = new DisplayMetrics();
+    activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+    return dm.densityDpi;
+  }
 }

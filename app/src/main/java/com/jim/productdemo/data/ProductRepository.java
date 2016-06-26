@@ -1,22 +1,17 @@
 package com.jim.productdemo.data;
 
-import android.util.LruCache;
 import com.jim.productdemo.api.ApiCallback;
 import com.jim.productdemo.api.ApiError;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Copyright (c) 2012-2016 Magnet Systems. All rights reserved.
+ * The repository to retrieve product data which abstracts the implementation
+ *
  */
-
 public class ProductRepository implements ProductDataSource {
-
-  private static final int cacheSize = 10 * 1024 * 1024; // 10MiB
-  private static final int itemSize = 500;
 
   private static ProductRepository sInstance = null;
 
@@ -92,7 +87,7 @@ public class ProductRepository implements ProductDataSource {
   }
 
   private List<Product> getFromCache(int offset, int limit) {
-    if(mCache.size() < offset + limit) {
+    if(mCache.size() <= offset + limit) {
       return null;
     }
 
