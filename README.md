@@ -2,7 +2,7 @@
 A app to demo a product master-details view
 ## Features
 ### List view
-(*) RecyclerView
+* RecyclerView
 (*) Pull to refresh
 (*) Endless scrolling
 (*) Change to grid view on tablet
