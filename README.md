@@ -14,7 +14,7 @@ A app to demo a product master-details view
 
 ### Other Features
 * Works offline
-* 
+* Custom view (reusable review UI)
 
 ### ToDo
 * UI to indicate offline
