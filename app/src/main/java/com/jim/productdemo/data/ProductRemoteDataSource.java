@@ -135,6 +135,10 @@ public class ProductRemoteDataSource implements ProductDataSource {
         request = request.newBuilder()
             .cacheControl(CacheControl.FORCE_CACHE)
             .build();
+      } else {
+        request = request.newBuilder()
+            .cacheControl(CacheControl.FORCE_NETWORK)
+            .build();
       }
 
       return chain.proceed(request);

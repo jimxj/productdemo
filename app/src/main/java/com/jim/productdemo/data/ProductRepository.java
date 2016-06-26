@@ -39,13 +39,15 @@ public class ProductRepository implements ProductDataSource {
   }
 
   @Override public void getProducts(final int offset, int limit, final ApiCallback<List<Product>> callback) {
-    List<Product> cachedResult = getFromCache(offset, limit);
-    if(null != cachedResult && !cachedResult.isEmpty()) {
-      if(null != callback) {
-        callback.onSuccess(cachedResult);
-      }
+    if(0 != offset) {
+      List<Product> cachedResult = getFromCache(offset, limit);
+      if (null != cachedResult && !cachedResult.isEmpty()) {
+        if (null != callback) {
+          callback.onSuccess(cachedResult);
+        }
 
-      return;
+        return;
+      }
     }
 
     mRemoteDataSource.getProducts(offset, limit, new ApiCallback<List<Product>>() {
