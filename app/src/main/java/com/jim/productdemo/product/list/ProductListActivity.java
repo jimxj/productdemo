@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * An activity to show a list of Products. When one item is touched,
- * it will nevigate to a {@link ProductDetailActivity} to show the
+ * it will navigate to a {@link ProductDetailActivity} to show the
  * product details.
  */
 public class ProductListActivity extends AppCompatActivity {
@@ -110,8 +110,10 @@ public class ProductListActivity extends AppCompatActivity {
     mProductRepository.getProducts(page * pageSize, pageSize, new ApiCallback<List<Product>>() {
       @Override public void onSuccess(List<Product> result) {
         Log.d(TAG, "fetched items " + result.size());
-        mRecyclerViewAdapter.addData(result);
-        finishFetch();
+        if(null != mRecyclerViewAdapter) {
+          mRecyclerViewAdapter.addData(result);
+          finishFetch();
+        }
       }
 
       @Override public void onFailure(ApiError apiError) {
@@ -120,8 +122,10 @@ public class ProductListActivity extends AppCompatActivity {
       }
 
       private void finishFetch() {
-        if(page == 0) {
-          mSrProducts.setRefreshing(false);
+        if(null != mSrProducts) {
+          if (page == 0) {
+            mSrProducts.setRefreshing(false);
+          }
         }
       }
     });
