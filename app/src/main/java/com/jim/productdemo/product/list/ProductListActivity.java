@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.google.firebase.crash.FirebaseCrash;
 import com.jim.productdemo.Constants;
 import com.jim.productdemo.R;
 import com.jim.productdemo.api.ApiCallback;
