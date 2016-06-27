@@ -23,4 +23,4 @@ A app to demo a product master-details view
 * Tests
 
 ## APK
-Download [./app-debug.apk]
+[Download!](./app-debug.apk)
