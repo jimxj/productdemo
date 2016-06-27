@@ -18,5 +18,6 @@ A app to demo a product master-details view
 
 ### ToDo
 * UI to indicate offline
+* Search product
 * MVP and Dagger
 * Tests
