@@ -36,6 +36,8 @@ public class ProductListActivity extends AppCompatActivity {
 
   private ProductDataSource mProductRepository;
 
+  private int pageSize;
+
   @BindView(R.id.product_list)
   RecyclerView mRvProducts;
 
@@ -73,8 +75,10 @@ public class ProductListActivity extends AppCompatActivity {
 
     RecyclerView.LayoutManager layoutManager = null;
     if(!DisplayUtil.isTablet(this)) {
+      pageSize = Constants.DEFAULT_PAGE_SIZE;
       layoutManager = new LinearLayoutManager(this);
     } else {
+      pageSize = Constants.DEFAULT_PAGE_SIZE * 2;
       layoutManager = new GridLayoutManager(this, 2);
     }
     mRvProducts.setLayoutManager(layoutManager);
@@ -102,7 +106,7 @@ public class ProductListActivity extends AppCompatActivity {
   }
 
   private void fetchData(final int page) {
-    mProductRepository.getProducts(page * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE, new ApiCallback<List<Product>>() {
+    mProductRepository.getProducts(page * pageSize, pageSize, new ApiCallback<List<Product>>() {
       @Override public void onSuccess(List<Product> result) {
         Log.d(TAG, "fetched items " + result.size());
         mRecyclerViewAdapter.addData(result);

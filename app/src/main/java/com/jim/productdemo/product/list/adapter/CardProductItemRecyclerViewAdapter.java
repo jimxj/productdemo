@@ -54,22 +54,6 @@ public class CardProductItemRecyclerViewAdapter extends
       @Override public void onClick(View v) {
         ProductDetailActivity.startProductDetailActivity(v.getContext(), holder.mItem.getProductId());
       }
-      //  if (mTwoPane) {
-      //    Bundle arguments = new Bundle();
-      //    arguments.putString(ProductDetailFragment.ARG_ITEM_ID, holder.mItem.getProductId());
-      //    ProductDetailFragment fragment = new ProductDetailFragment();
-      //    fragment.setArguments(arguments);
-      //    getSupportFragmentManager().beginTransaction()
-      //        .replace(R.id.product_detail_container, fragment)
-      //        .commit();
-      //  } else {
-      //    Context context = v.getContext();
-      //    Intent intent = new Intent(context, ProductDetailActivity.class);
-      //    intent.putExtra(ProductDetailFragment.ARG_ITEM_ID, holder.mItem.getProductId());
-      //
-      //    context.startActivity(intent);
-      //  }
-      //}
     });
   }
 

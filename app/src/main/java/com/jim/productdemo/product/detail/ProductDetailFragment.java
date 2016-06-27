@@ -73,10 +73,6 @@ public class ProductDetailFragment extends Fragment implements GestureDetector.O
 
   private GestureDetectorCompat mDetector;
 
-  /**
-   * Mandatory empty constructor for the fragment manager to instantiate the
-   * fragment (e.g. upon screen orientation changes).
-   */
   public ProductDetailFragment() {
   }
 

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Copyright (c) 2012-2016 Magnet Systems. All rights reserved.
+ * Base adapter for product list
+ * @param <T>
  */
-
 public abstract class ProductItemRecyclerViewAdapter<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
   protected final List<Product> mValues;
   protected final Context mContext;
