@@ -21,3 +21,6 @@ A app to demo a product master-details view
 * Search product
 * MVP and Dagger
 * Tests
+
+## APK
+Download [./app-debug.apk]
