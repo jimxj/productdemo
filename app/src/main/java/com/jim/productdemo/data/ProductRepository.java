@@ -1,7 +1,11 @@
 package com.jim.productdemo.data;
 
+import android.content.ContentResolver;
+import android.net.Uri;
+import com.jim.productdemo.ProductDemoApplication;
 import com.jim.productdemo.api.ApiCallback;
 import com.jim.productdemo.api.ApiError;
+import com.jim.productdemo.data.local.ProductDataConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -17,7 +21,12 @@ public class ProductRepository implements ProductDataSource {
 
   private ProductDataSource mRemoteDataSource;
 
+  // In memory cash
   LinkedHashMap<String, Product> mCache;
+
+  public static final Uri CONTENT_URI = Uri.parse("content://" + ProductDataConstants.AUTHORITY + "/" + ProductDataConstants.DATA_TYPE);
+
+  private ContentResolver mContentResolver = null;
 
   public static ProductRepository getInstance() {
     if(null == sInstance) {
@@ -31,6 +40,8 @@ public class ProductRepository implements ProductDataSource {
     mRemoteDataSource = ProductRemoteDataSource.getInstance();
 
     mCache = new LinkedHashMap<>();
+
+    mContentResolver = ProductDemoApplication.getAppContext().getContentResolver();
   }
 
   @Override public void getProducts(final int offset, int limit, final ApiCallback<List<Product>> callback) {
