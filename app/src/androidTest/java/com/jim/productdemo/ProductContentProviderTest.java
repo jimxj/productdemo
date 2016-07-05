@@ -9,6 +9,7 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.MediumTest;
 import android.support.test.runner.AndroidJUnit4;
 import com.jim.productdemo.data.local.ProductDataConstants;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -17,6 +18,7 @@ import static junit.framework.Assert.assertNotNull;
 @MediumTest @RunWith(AndroidJUnit4.class)
 public class ProductContentProviderTest {
 
+  @Ignore
   @Test
   public void testProductContentProvider() throws RemoteException {
     ContentProviderClient

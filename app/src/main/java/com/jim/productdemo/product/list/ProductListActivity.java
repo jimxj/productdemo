@@ -23,6 +23,7 @@ import com.jim.productdemo.product.list.adapter.CardProductItemRecyclerViewAdapt
 import com.jim.productdemo.product.list.adapter.ProductItemRecyclerViewAdapter;
 import com.jim.productdemo.utils.DisplayUtil;
 import com.jim.productdemo.utils.EndlessRecyclerViewScrollListener;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -107,27 +108,40 @@ public class ProductListActivity extends AppCompatActivity {
   }
 
   private void fetchData(final int page) {
-    mProductRepository.getProducts(page * pageSize, pageSize, new ApiCallback<List<Product>>() {
-      @Override public void onSuccess(List<Product> result) {
-        Log.d(TAG, "fetched items " + result.size());
-        if(null != mRecyclerViewAdapter) {
-          mRecyclerViewAdapter.addData(result);
-          finishFetch();
-        }
-      }
+    mProductRepository.getProducts(page * pageSize, pageSize, new GetProductsCallback(mRecyclerViewAdapter, mSrProducts, page));
+  }
 
-      @Override public void onFailure(ApiError apiError) {
-        Log.e(TAG, "Failed to fetch product data : " + apiError);
+  /**
+   * Callback to handle get products response
+   */
+  private static class GetProductsCallback implements ApiCallback<List<Product>> {
+    private WeakReference<ProductItemRecyclerViewAdapter> mAdapterRef;
+    private WeakReference<SwipeRefreshLayout> mSwipeRefreshRef;
+    private int mPage;
+
+    public GetProductsCallback(ProductItemRecyclerViewAdapter adapter, SwipeRefreshLayout swipeRefreshLayout, int page) {
+      this.mAdapterRef = new WeakReference<ProductItemRecyclerViewAdapter>(adapter);
+      this.mSwipeRefreshRef = new WeakReference<SwipeRefreshLayout>(swipeRefreshLayout);
+      this.mPage = page;
+    }
+
+    @Override public void onSuccess(List<Product> result) {
+      Log.d(TAG, "fetched items " + result.size());
+      if(null != mAdapterRef.get()) {
+        mAdapterRef.get().addData(result);
         finishFetch();
       }
+    }
 
-      private void finishFetch() {
-        if(null != mSrProducts) {
-          if (page == 0) {
-            mSrProducts.setRefreshing(false);
-          }
-        }
+    @Override public void onFailure(ApiError apiError) {
+      Log.e(TAG, "Failed to fetch product data : " + apiError);
+      finishFetch();
+    }
+
+    private void finishFetch() {
+      if(null != mSwipeRefreshRef.get() && mPage == 0) {
+        mSwipeRefreshRef.get().setRefreshing(false);
       }
-    });
+    }
   }
 }
